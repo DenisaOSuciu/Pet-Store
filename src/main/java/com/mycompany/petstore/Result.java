@@ -8,17 +8,19 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author denisasuciu
  */
-public class Result extends javax.swing.JFrame {
+public final class Result extends javax.swing.JFrame {
 
     /**
      * Creates new form Result
      */
-    public Result() {
+    public Result()  throws FileNotFoundException, IOException{
         initComponents();
         showResult();
     }
@@ -41,7 +43,8 @@ public class Result extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Felicitari!");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 2, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("rasa");
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -62,8 +65,8 @@ public class Result extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(201, 201, 201))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,42 +76,52 @@ public class Result extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel3)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel2)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-public void showResult() throws FileNotFoundException, IOException{
+public boolean showResult() throws FileNotFoundException, IOException{
        
-        BufferedReader resultReader = new BufferedReader(new FileReader("Result.txt"));
+        BufferedReader readResult = new BufferedReader(new FileReader("Result.txt"));
         //resultReader citeste "rezultatul" intrebarilor din fisierul result.txt
         
-        String result = resultReader.readLine();
-        //se stocheaza rezultatul in variabila breed
-        Boolean breedfound = false;
+        String result = readResult.readLine();
+        //se stocheaza rezultatul in variabila result
+        Boolean petfound = false;
         // true cand gasim un match in fisierul de reguli
-        BufferedReader rulesReader;
+        BufferedReader readRules;
         //pt a citi din fifieru cu reguli
         
         try
         {
             
-            rulesReader = new BufferedReader(new FileReader("Rules.txt"));
+            readRules = new BufferedReader(new FileReader("rules.txt"));
             //citim fisierul cu reguli
-            
-            // Read a line
-            String line = rulesReader.readLine();
+            String line = readRules.readLine();
             //stocam in line cate o linie 
             
             // While there are still lines to be read
             while (line != null) {
                 // atat timp cat linia nu e goala
-                String S = "";
                 
                 
-                String mname=line.substring(line.lastIndexOf(" "),line.length());
+                
+                String fileName=line.substring(line.lastIndexOf(" "),line.length());
                 // luam din line ce e scris dupa untimul spatiu, adica numele rasei
+                String rules = "";
+                
+            char[] chars = fileName.toCharArray();
+            String petName="";
+            for (int i =0; i < chars.length; i++)
+            {
+                      if(chars[i]=='_')
+                          chars[i]=' ';
+                      petName=petName+chars[i];
+            }
+                
              
                 for (int i = 0; i < line.lastIndexOf(" ") ; ++i)
                 {
@@ -116,38 +129,42 @@ public void showResult() throws FileNotFoundException, IOException{
                     if (line.charAt(i) =='Y' || line.charAt(i) == 'N')
                     {
                         //daca avem Y sau N il salvam in S
-                        S = S + line.charAt(i);
+                        rules = rules + line.charAt(i);
                     }
                 }
-               // System.out.println("Bike vector: " + S);
-                // Check if there motorcycle is found
-                if(S.equals(result))
+                if(rules.equals(result))
                 {
-                    //daca result e egal cu una din variantele din fisier, breedfoud e true
-                  //  System.out.println("\nWe found a motorcycle for you : "+ mname);
-                    breedfound = true;
-                    jLabel2.setText(mname);
+                    //daca result e egal cu una din variantele din fisier, petfoud e true
+                    petfound = true;
+                    jLabel2.setText(petName);
                     //afisam numele rasei
+                    return true;
+                    //returnam true sa iesim din bucla
+                    
                 }
                 else{
-                // Read new line
-                line = rulesReader.readLine();}
-                //daca nu, continuam cu urmatoarele linii
+                // citim urmatoarea linie
+                line = readRules.readLine();
+                }
+           //     
+            //}
+              
             }
             
           
-            rulesReader.close();
-            // inchidem rulesReader cand nu mai avem alte linii de citit
+            readRules.close();
+            // inchidem readRules cand nu mai avem alte linii de citit
             
+        
+           
         } catch (IOException e1)
         {
             e1.printStackTrace();
         }
-       
+       if(petfound == false){
+        jLabel2.setText("We couldn't find the perfect pet for you.");}
+        return false;
         
-        if(breedfound == false){
-            jLabel2.setText("\nWe couldn't find a breed for you.");
-        }
         //daca nu s-a gasit nici o rasa, afisam un mesaj
     }
     /**
@@ -176,11 +193,18 @@ public void showResult() throws FileNotFoundException, IOException{
             java.util.logging.Logger.getLogger(Result.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Result().setVisible(true);
+                try {
+                    new Result().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Result.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

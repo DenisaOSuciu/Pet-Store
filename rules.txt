@@ -1,0 +1,53 @@
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? Y and PAZA ? Y then Amstaff
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? Y and PAZA ? N then Beagle
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? N and PAZA ? Y then Bulldog
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? N and PAZA ? N then Basset_Hound
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? N and ACTIVITATEMARE ? N and PAZA ? N then Corgi
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? N and ACTIVITATEMARE ? N and PAZA ? Y then Australian_Castle_Dog
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? N and ACTIVITATEMARE ? Y and PAZA ? N then Cocker_Spaniel
+if CASA ? Y and BUGETMARE ? N and DERAJEAZAPAR ? N and ACTIVITATEMARE ? Y and PAZA ? Y then Ciobanesc_Australian
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? N and PAZA ? Y then Dog_german
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? N and PAZA ? N then Dalmatian
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? Y and PAZA ? N then Labrador
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? Y and PAZA ? Y then Rottwiler
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? Y and PAZA ? Y then Ciobanesc_german
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? Y and PAZA ? N then Golden_Retriever
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? N and PAZA ? N then Pudel
+if CASA ? Y and BUGETMARE ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? N and PAZA ? Y then Airedale_Terrier
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? N and BUGETMARE ? N then Bichon
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? N and BUGETMARE ? Y then Boston_terrier
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? Y and BUGETMARE ? N then Chihuahua
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? N and BUGETMARE ? N then Papilon
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? N and BUGETMARE ? Y then Scottish_Terrier
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? Y and BUGETMARE ? N then Shih_tzu
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? N and ACTIVITATEMARE ? Y and BUGETMARE ? Y then Pomeranian
+if CASA ? N and ACASA ? Y and DERAJEAZAPAR ? Y and ACTIVITATEMARE ? Y and BUGETMARE ? Y then Yorksire_terrier
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? Y and BUGETMIC ? N and PCALDA ? N then Pisica_Sfinx
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? Y and BUGETMIC ? N and PCALDA ? Y then Pisica_Bengaleza
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? N and BUGETMIC ? Y and PCALDA ? N then Pisica_Persana
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? N and BUGETMIC ? Y and PCALDA ? Y then Pisica_Hymalaiana
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? N and BUGETMIC ? N and PCALDA ? Y then Pisica_Siberiana
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? Y and BUGETMIC ? Y and PCALDA ? N then Pisica_Siameza
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? Y and BUGETMIC ? Y and PCALDA ? Y then Pisica_British_Short_Hair
+if CASA ? N and ACASA ? N and DERAJEAZAPAR ? N and BUGETMIC ? N and PCALDA ? N then Pisica_Maine_Coon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
